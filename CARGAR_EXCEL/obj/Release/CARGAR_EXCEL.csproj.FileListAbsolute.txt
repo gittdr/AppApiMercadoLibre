@@ -70,3 +70,5 @@ C:\CartaPorteCargaMasiva\TimbradoFacturas\CARGAR_EXCEL\obj\Release\CARGAR_EXCEL.
 C:\CartaPorteCargaMasiva\TimbradoFacturas\CARGAR_EXCEL\obj\Release\CARGAR_EXCEL.csproj.CopyComplete
 C:\CartaPorteCargaMasiva\TimbradoFacturas\CARGAR_EXCEL\obj\Release\CARGAR_EXCEL.dll
 C:\CartaPorteCargaMasiva\TimbradoFacturas\CARGAR_EXCEL\obj\Release\CARGAR_EXCEL.pdb
+C:\CartaPorteCargaMasiva\TimbradoFacturas\CARGAR_EXCEL\bin\Newtonsoft.Json.dll
+C:\CartaPorteCargaMasiva\TimbradoFacturas\CARGAR_EXCEL\bin\Newtonsoft.Json.xml

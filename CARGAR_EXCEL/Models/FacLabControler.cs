@@ -22,6 +22,10 @@ namespace CARGAR_EXCEL.Models
         {
             this.modelFact.DeleteMerc(Ai_orden);
         }
+        public void OrderHeader(string leg, string rfecha)
+        {
+            this.modelFact.OrderHeader(leg, rfecha);
+        }
         public DataTable GetLeg()
         {
             return this.modelFact.getLeg();
@@ -38,9 +42,61 @@ namespace CARGAR_EXCEL.Models
         {
             return this.modelFact.GetEstatus(orden);
         }
+        public DataTable SelectLegHeader(string orseg)
+        {
+            return this.modelFact.SelectLegHeader(orseg);
+        }
+        public DataTable SelectLegHeaderOnly(string orseg)
+        {
+            return this.modelFact.SelectLegHeaderOnly(orseg);
+        }
+        public DataTable ExisteStatus(string seg)
+        {
+            return this.modelFact.ExisteStatus(seg);
+        }
         public DataTable GetSegmentoRepetido(string leg)
         {
             return this.modelFact.GetSegmentoRepetido(leg);
+        }
+        public DataTable GetSegmentoJr(string leg)
+        {
+            return this.modelFact.GetSegmentoJr(leg);
+        }
+        public DataTable GetSegmentoJCLIVERDED(string leg)
+        {
+            return this.modelFact.GetSegmentoJCLIVERDED(leg);
+        }
+        public DataTable GetSegmentoJCLIVERDEDCPP(string leg)
+        {
+            return this.modelFact.GetSegmentoJCLIVERDEDCPP(leg);
+        }
+        public DataTable GetSegmentoJCPENAFIEL(string leg)
+        {
+            return this.modelFact.GetSegmentoJCPENAFIEL(leg);
+        }
+        public DataTable GetSegmentoJCPENAFIELCPP(string leg)
+        {
+            return this.modelFact.GetSegmentoJCPENAFIELCPP(leg);
+        }
+        public DataTable GetSegmentoJCPALACIOH(string leg)
+        {
+            return this.modelFact.GetSegmentoJCPALACIOH(leg);
+        }
+        public DataTable GetSegmentoJCDHL(string leg)
+        {
+            return this.modelFact.GetSegmentoJCDHL(leg);
+        }
+        public DataTable GetSegmentoJCDHLCPP(string leg)
+        {
+            return this.modelFact.GetSegmentoJCDHLCPP(leg);
+        }
+        public DataTable GetSegmentoJCPALACIOHCPP(string leg)
+        {
+            return this.modelFact.GetSegmentoJCPALACIOHCPP(leg);
+        }
+        public DataTable GetSegmentoRepetidoReporte(string leg)
+        {
+            return this.modelFact.GetSegmentoRepetidoReporte(leg);
         }
         public DataTable TieneMercancias(string leg)
         {
@@ -50,17 +106,86 @@ namespace CARGAR_EXCEL.Models
         {
             this.modelFact.GetMerca(Ai_orden, segmentod, Av_cmd_code, Av_cmd_description, Af_weight, Av_weightunit, Af_count, Av_countunit);
         }
+        public void PullReport(string rrseg)
+        {
+            this.modelFact.PullReport(rrseg);
+        }
+        public void PullReportUpdate(string Ai_orden, string rrseg, string rrbillto, string rrestatus, string fechatim)
+        {
+            this.modelFact.PullReportUpdate(Ai_orden, rrseg, rrbillto, rrestatus, fechatim);
+        }
+        public void PullReportUpdate2(string Ai_orden, string rrseg)
+        {
+            this.modelFact.PullReportUpdate2(Ai_orden, rrseg);
+        }
+        public void PullReportUpdateCPP(string rrseg, string rfecha)
+        {
+            this.modelFact.PullReportUpdateCPP(rrseg, rfecha);
+        }
+        public void PullReportUpdateCPPPENAFIEL(string rrseg, string rfecha)
+        {
+            this.modelFact.PullReportUpdateCPPPENAFIEL(rrseg, rfecha);
+        }
+        public void PullReportUpdateCPPPALACIOH(string rrseg, string rfecha)
+        {
+            this.modelFact.PullReportUpdateCPPPALACIOH(rrseg, rfecha);
+        }
+        public void PullReportUpdateCPDHL(string rrseg, string rfecha)
+        {
+            this.modelFact.PullReportUpdateCPDHL(rrseg, rfecha);
+        }
+
+        public void PullReportUpdatePenafiel(string Ai_orden, string rrseg, string rrbillto, string rrestatus, string fechatim)
+        {
+            this.modelFact.PullReportUpdatePenafiel(Ai_orden, rrseg, rrbillto, rrestatus, fechatim);
+        }
+        public void PullReportUpdate2Penafiel(string Ai_orden, string rrseg)
+        {
+            this.modelFact.PullReportUpdate2Penafiel(Ai_orden, rrseg);
+        }
+        public void PullReportUpdatePalacioH(string Ai_orden, string rrseg, string rrbillto, string rrestatus, string fechatim)
+        {
+            this.modelFact.PullReportUpdatePalacioH(Ai_orden, rrseg, rrbillto, rrestatus, fechatim);
+        }
+        public void PullReportUpdate2PalacioH(string Ai_orden, string rrseg)
+        {
+            this.modelFact.PullReportUpdate2PalacioH(Ai_orden, rrseg);
+        }
+        public void PullOrderReport(string Ai_orden)
+        {
+            this.modelFact.PullOrderReport(Ai_orden);
+        }
+        public void PullOrderReportPenafiel(string Ai_orden)
+        {
+            this.modelFact.PullOrderReportPenafiel(Ai_orden);
+        }
+        public void PullOrderReportPalacioH(string Ai_orden)
+        {
+            this.modelFact.PullOrderReportPalacioH(Ai_orden);
+        }
         public void DeleteMerca(string segmentod)
         {
             this.modelFact.DeleteMerca(segmentod);
+        }
+        public void InsertOrderReport(string rorderh, string leg, string gbilto, string tipom, string rfecha)
+        {
+            this.modelFact.InsertOrderReport(rorderh, leg, gbilto, tipom, rfecha);
         }
         public DataTable ExisteSegmento(string leg)
         {
             return this.modelFact.ExisteSegmento(leg);
         }
+        public DataTable GetSegJr(string leg)
+        {
+            return this.modelFact.GetSegJr(leg);
+        }
         public DataTable UpdateLeg(string leg, string tipom)
         {
             return this.modelFact.UpdateLeg(leg, tipom);
+        }
+        public DataTable UpdateOrderHeader(string orheader, string fecha)
+        {
+            return this.modelFact.UpdateOrderHeader(orheader, fecha);
         }
         public DataTable VerErrores(string leg)
         {
@@ -106,6 +231,10 @@ namespace CARGAR_EXCEL.Models
         public DataTable detalle33p(string p)
         {
             return this.modelFact.getDetalle33(p);
+        }
+        public DataTable GetCPP(string folio)
+        {
+            return this.modelFact.GetCPP(folio);
         }
 
         public DataTable estatus(string fact)

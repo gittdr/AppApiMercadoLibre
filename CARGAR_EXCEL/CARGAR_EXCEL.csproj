@@ -53,6 +53,9 @@
       <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI, Version=2.5.2.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
       <HintPath>..\packages\NPOI.2.5.2\lib\net45\NPOI.dll</HintPath>
     </Reference>
@@ -105,14 +108,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Connection.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Destination.cs" />
+    <Compile Include="Models\Dimensions.cs" />
     <Compile Include="Models\Encryptor.cs" />
     <Compile Include="Models\FacLabControler.cs" />
+    <Compile Include="Models\Fiscal_Information.cs" />
     <Compile Include="Models\Functions.cs" />
+    <Compile Include="Models\Items.cs" />
+    <Compile Include="Models\MLMCartaPorte.cs" />
     <Compile Include="Models\Modelfact.cs" />
+    <Compile Include="Models\Municipality.cs" />
+    <Compile Include="Models\Neighborhood.cs" />
+    <Compile Include="Models\Origin.cs" />
+    <Compile Include="Models\Package.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\PostResponse.cs" />
+    <Compile Include="Models\Recipient.cs" />
+    <Compile Include="Models\Shipments.cs" />
+    <Compile Include="Models\State.cs" />
     <Compile Include="Models\storeProcedure.cs" />
     <Compile Include="Models\UploadFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

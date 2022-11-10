@@ -131,6 +131,255 @@ namespace CARGAR_EXCEL.Models
             }
             return dataTable;
         }
+        public DataTable GetSegmentoJCLIVERDED(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCLIVERDED", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJCLIVERDEDCPP(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCLIVERDEDCPP", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+
+        public DataTable GetSegmentoJCPENAFIEL(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCPENAFIEL", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJCPENAFIELCPP(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCPENAFIELCPP", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJCPALACIOH(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCPALACIOH", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJCDHL(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCDHL", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJCDHLCPP(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCDHLCPP", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJCPALACIOHCPP(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("GetSegmentoJCPALACIOHCPP", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
         public DataTable ObtSegmento(string orden)
         {
             DataTable dataTable = new DataTable();
@@ -162,6 +411,67 @@ namespace CARGAR_EXCEL.Models
             }
             return dataTable;
         }
+        public DataTable GetSegJr(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_get_seg_jr", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    //selectCommand.Parameters.AddWithValue("@tipom", (object)tipom);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable ExisteStatus(string seg)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_existe_status", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@seg", (object)seg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
         public void enviarNotificacion(string leg, string titulo, string mensaje)
         {
             string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
@@ -170,7 +480,7 @@ namespace CARGAR_EXCEL.Models
             using (SqlConnection connection = new SqlConnection(cadena2))
             {
 
-                using (SqlCommand selectCommand = new SqlCommand("sp_NotificacionesLiverded", connection))
+                using (SqlCommand selectCommand = new SqlCommand("sp_NotificacionesMercadoLibre", connection))
                 {
 
                     selectCommand.CommandType = CommandType.StoredProcedure;
@@ -178,6 +488,173 @@ namespace CARGAR_EXCEL.Models
                     selectCommand.Parameters.AddWithValue("@leg", (object)leg);
                     selectCommand.Parameters.AddWithValue("@titulo", (object)titulo);
                     selectCommand.Parameters.AddWithValue("@mensaje", (object)mensaje);
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdateCPP(string rrseg, string rfecha)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_PullReportUpdateCPPLIVERDED", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@rrseg", (object)rrseg);
+                    selectCommand.Parameters.AddWithValue("@rfecha", (object)rfecha);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdateCPPPENAFIEL(string rrseg, string rfecha)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_PullReportUpdateCPPPENAFIEL", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@rrseg", (object)rrseg);
+                    selectCommand.Parameters.AddWithValue("@rfecha", (object)rfecha);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdateCPPPALACIOH(string rrseg, string rfecha)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_PullReportUpdateCPPPALACIOH", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@rrseg", (object)rrseg);
+                    selectCommand.Parameters.AddWithValue("@rfecha", (object)rfecha);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdateCPDHL(string rrseg, string rfecha)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_PullReportUpdateCPDHL", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@rrseg", (object)rrseg);
+                    selectCommand.Parameters.AddWithValue("@rfecha", (object)rfecha);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void InsertOrderReport(string rorderh, string leg, string gbilto, string tipom, string rfecha)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_InsertOrderReport", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@rorderh", (object)rorderh);
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.Parameters.AddWithValue("@gbilto", (object)gbilto);
+                    selectCommand.Parameters.AddWithValue("@tipom", (object)tipom);
+                    selectCommand.Parameters.AddWithValue("@rfecha", (object)rfecha);
                     try
                     {
                         connection.Open();
@@ -345,6 +822,37 @@ namespace CARGAR_EXCEL.Models
             }
             return dataTable;
         }
+        public DataTable UpdateOrderHeader(string orheader, string fecha)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_update_orderheader", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@orheader", (object)orheader);
+                    selectCommand.Parameters.AddWithValue("@fecha", (object)fecha);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
         public void GetMerca(string Ai_orden, string segmentod, string Av_cmd_code, string Av_cmd_description, string Af_weight, string Av_weightunit, string Af_count, string Av_countunit)
         {
             string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
@@ -366,6 +874,377 @@ namespace CARGAR_EXCEL.Models
                     selectCommand.Parameters.AddWithValue("@Av_weightunit", Av_weightunit);
                     selectCommand.Parameters.AddWithValue("@Af_count", Af_count);
                     selectCommand.Parameters.AddWithValue("@Av_countunit", Av_countunit);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReport(string rrseg)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 1000;
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdate(string Ai_orden, string rrseg, string rrbillto, string rrestatus, string fechatim)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report_Update", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 103232300;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+                    selectCommand.Parameters.AddWithValue("@billto", rrbillto);
+                    selectCommand.Parameters.AddWithValue("@estatus", rrestatus);
+                    selectCommand.Parameters.AddWithValue("@fecha", fechatim);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdate2(string Ai_orden, string rrseg)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report_Update2", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 103232300;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdatePenafiel(string Ai_orden, string rrseg, string rrbillto, string rrestatus, string fechatim)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report_Update_Penafiel_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 103232300;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+                    selectCommand.Parameters.AddWithValue("@billto", rrbillto);
+                    selectCommand.Parameters.AddWithValue("@estatus", rrestatus);
+                    selectCommand.Parameters.AddWithValue("@fecha", fechatim);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdate2Penafiel(string Ai_orden, string rrseg)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report_Update2_Penafiel_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 103232300;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+
+        public void PullReportUpdatePalacioH(string Ai_orden, string rrseg, string rrbillto, string rrestatus, string fechatim)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report_Update_PalacioH_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 103232300;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+                    selectCommand.Parameters.AddWithValue("@billto", rrbillto);
+                    selectCommand.Parameters.AddWithValue("@estatus", rrestatus);
+                    selectCommand.Parameters.AddWithValue("@fecha", fechatim);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullReportUpdate2PalacioH(string Ai_orden, string rrseg)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Report_Update2_PalacioH_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 103232300;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+                    selectCommand.Parameters.AddWithValue("@segmento", rrseg);
+
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void OrderHeader(string leg, string rfecha)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Order_Header_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100121220;
+                    selectCommand.Parameters.AddWithValue("@leg", leg);
+                    selectCommand.Parameters.AddWithValue("@fecha", rfecha);
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullOrderReport(string Ai_orden)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Order_Report", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 1090909000;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullOrderReportPenafiel(string Ai_orden)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Order_Report_Penafiel_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 1090909000;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
+
+                    try
+                    {
+                        connection.Open();
+                        selectCommand.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+        }
+        public void PullOrderReportPalacioH(string Ai_orden)
+        {
+            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            //DataTable dataTable = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(cadena2))
+            {
+
+                using (SqlCommand selectCommand = new SqlCommand("sp_Pull_Order_Report_PalacioH_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 1090909000;
+                    selectCommand.Parameters.AddWithValue("@orden", Ai_orden);
 
                     try
                     {
@@ -458,6 +1337,126 @@ namespace CARGAR_EXCEL.Models
                     selectCommand.CommandType = CommandType.StoredProcedure;
                     selectCommand.CommandTimeout = 100000;
                     selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoRepetidoReporte(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_obtener_segmento_repetido_reporte", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetSegmentoJr(string leg)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_obtener_segmento_jr", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)leg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable SelectLegHeader(string orseg)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_obtener_order_header", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)orseg);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable SelectLegHeaderOnly(string orseg)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_obtener_order_header_ONLY", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@leg", (object)orseg);
                     selectCommand.ExecuteNonQuery();
                     using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
                     {
@@ -908,6 +1907,36 @@ namespace CARGAR_EXCEL.Models
                         }
                         catch (SqlException ex)
                         {
+                            string message = ex.Message;
+                        }
+                    }
+                }
+            }
+            return dataTable;
+        }
+        public DataTable GetCPP(string folio)
+        {
+            DataTable dataTable = new DataTable();
+            using (SqlConnection connection = new SqlConnection(this._ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand("sp_get_CPP_JC", connection))
+                {
+
+                    selectCommand.CommandType = CommandType.StoredProcedure;
+                    selectCommand.CommandTimeout = 100000;
+                    selectCommand.Parameters.AddWithValue("@folio", (object)folio);
+                    selectCommand.ExecuteNonQuery();
+                    using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(selectCommand))
+                    {
+                        try
+                        {
+                            //selectCommand.Connection.Open();
+                            sqlDataAdapter.Fill(dataTable);
+                        }
+                        catch (SqlException ex)
+                        {
+                            connection.Close();
                             string message = ex.Message;
                         }
                     }
