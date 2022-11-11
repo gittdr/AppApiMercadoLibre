@@ -55,6 +55,7 @@ namespace CARGAR_EXCEL.Models
             establecerConexion();
             comando = new SqlCommand(query, conexion);
             comando.CommandType = CommandType.Text;
+            comando.CommandTimeout = 1720000;
             string resultado = "";
             try
             {
@@ -88,6 +89,7 @@ namespace CARGAR_EXCEL.Models
             establecerConexion();
             comando = new SqlCommand(query, conexion);
             comando.CommandType = CommandType.Text;
+            comando.CommandTimeout = 1720000;
             try
             {
                 conexion.Open();
@@ -128,7 +130,7 @@ namespace CARGAR_EXCEL.Models
             {
                 comando = new SqlCommand(query, conexion);
                 comando.CommandType = CommandType.Text;
-                comando.CommandTimeout = 30000;
+                comando.CommandTimeout = 1720000;
                 conexion.Open();
 
                 SqlDataAdapter da = new SqlDataAdapter(comando);
@@ -151,7 +153,7 @@ namespace CARGAR_EXCEL.Models
             {
                 comando = new SqlCommand(query, conexion);
                 comando.CommandType = CommandType.Text;
-                comando.CommandTimeout = 30000;
+                comando.CommandTimeout = 1720000;
                 conexion.Open();
 
                 SqlDataAdapter da = new SqlDataAdapter(comando);
@@ -173,6 +175,7 @@ namespace CARGAR_EXCEL.Models
         {
             establecerConexion();
             comando = new SqlCommand("Proc_cambiarpass", conexion);
+            comando.CommandTimeout = 1720000;
 
             comando.CommandType = CommandType.StoredProcedure;
             comando.Parameters.Add("@correo", SqlDbType.VarChar).Value = claveUs;
@@ -198,6 +201,7 @@ namespace CARGAR_EXCEL.Models
             comando = new SqlCommand("Proc_InserLogUsu", conexion);
 
             comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandTimeout = 1720000;
             comando.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
             comando.Parameters.Add("@correo", SqlDbType.VarChar).Value = correo;
             comando.Parameters.Add("@telefono", SqlDbType.VarChar).Value = telefono;
@@ -223,6 +227,7 @@ namespace CARGAR_EXCEL.Models
             comando = new SqlCommand("Prog_ValUsu", conexion);
 
             comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandTimeout = 1720000;
             comando.Parameters.Add("@email", SqlDbType.VarChar).Value = correo;
             try
             {
@@ -255,6 +260,7 @@ namespace CARGAR_EXCEL.Models
             comando = new SqlCommand("Proc_Carrito", conexion);
 
             comando.CommandType = CommandType.StoredProcedure;
+            comando.CommandTimeout = 1720000;
             comando.Parameters.Add("@op", SqlDbType.Int).Value = op;
             comando.Parameters.Add("@folio", SqlDbType.VarChar).Value = folio;
             comando.Parameters.Add("@idusu", SqlDbType.Int).Value = idusu;

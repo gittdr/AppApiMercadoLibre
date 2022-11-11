@@ -100,6 +100,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Models\icon.png" />
+    <Content Include="Models\indicator.gif" />
     <Content Include="Models\logo.png" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />

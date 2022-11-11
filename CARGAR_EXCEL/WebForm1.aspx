@@ -216,6 +216,21 @@
             padding: 30px;
             z-index: 1900;
         }
+        #myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 1%;
+  height: 30px;
+  background-color: #04AA6D;
+}
+#myBar2 {
+  width: 1%;
+  height: 30px;
+  background-color: #f7be31;
+}
             
     </style>
     <script>
@@ -277,7 +292,21 @@
             });
             return true;
         }
-
+       
+        //$(function () {
+        //    var current_progress = 0;
+        //    var interval = setInterval(function () {
+        //        current_progress += 1;
+        //        $("#dynamic")
+        //            .css("width", current_progress + "%")
+        //            .attr("aria-valuenow", current_progress)
+        //            .text(current_progress + "% Complete");
+        //        if (current_progress >= 2234)
+        //            clearInterval(interval);
+        //    }, 1000);
+        //});
+      
+        
     </script>
     
     
@@ -308,31 +337,35 @@
     <div class="content-wrapper" style="overflow:scroll">
         <div class="content shadow-lg">
               <form id="form1" runat="server">
+
          <div class="container-fluid mt-4">
                  <div class="card" runat="server" id="card1">
                   <div class="card-header">
-                    Generar Carta Porte
-                  </div>
+                    <b>Generar Carta Porte</b>
+                      <%--<div runat="server" id="dynamic" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        <span id="current-progress"></span>
+                      </div>--%>
+                      </div>
                   <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-6">
-                            <label for="NOrden"># Orden</label>
-                                    <asp:TextBox ID="NOrden" CssClass="form-control-file" runat="server" required="true"></asp:TextBox>
+                            <label for="NOrden"><b># Orden</b></label>
+                                    <asp:TextBox ID="NOrden" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="NOrden" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="Segmento">Segmento</label>
-                                    <asp:TextBox ID="Segmento" CssClass="form-control-file" runat="server" required="true"></asp:TextBox>
+                            <label for="Segmento"><b>Segmento</b></label>
+                                    <asp:TextBox ID="Segmento" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="Segmento" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="NOrden">RouteID</label>
-                                    <asp:TextBox ID="RouteID" CssClass="form-control-file" runat="server" required="true"></asp:TextBox>
+                            <label for="NOrden"><b>RouteID</b></label>
+                                    <asp:TextBox ID="RouteID" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="RouteID" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="NOrden">FacilityID</label>
-                                    <asp:TextBox ID="FacilityID" CssClass="form-control-file" runat="server" required="true"></asp:TextBox>
+                            <label for="NOrden"><b>FacilityID</b></label>
+                                    <asp:TextBox ID="FacilityID" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="FacilityID" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                         </div>
                         <div class="col-sm-12">
@@ -340,7 +373,7 @@
                                 
                                 
                                 <div class="form-group col-sm-12">
-                                  <asp:Button ID="Button1" runat="server" Text="Registrar" CssClass="btn btn-block btn-success mt-4" OnClick="Button1_Click" />
+                                  <asp:Button ID="Button1" runat="server" Text="Procesar" CssClass="btn btn-block btn-success mt-4" OnClick="Button1_Click" />
                                 </div>
                             </div>
                         </div>
@@ -352,7 +385,9 @@
                         
                                 
                                 <asp:HiddenField ID="Rcartaporte"  runat="server"></asp:HiddenField>
-                        <asp:HiddenField ID="HiddenField1"  runat="server"></asp:HiddenField>       
+                        <asp:HiddenField ID="HiddenField1"  runat="server"></asp:HiddenField>   
+                         <asp:HiddenField ID="TotalMerca"  runat="server"></asp:HiddenField>
+                        <asp:HiddenField ID="Contador"  runat="server"></asp:HiddenField>
 
                             
                             
@@ -422,7 +457,7 @@
                 </div>
         </div>
 
-        
+        </div>
         <%--<div>
             
             <br />

@@ -25,6 +25,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Timers;
 using Timer = System.Timers.Timer;
+using System.Diagnostics;
 
 namespace CARGAR_EXCEL
 {
@@ -62,16 +63,40 @@ namespace CARGAR_EXCEL
         {
             card1.Visible = true;
             card2.Visible = false;
-           
+            //dynamic.Visible = true;
+            //TotalMerca.Value = "2032";
+            //Contador.Value = "200";
+            NOrden.Focus();
+
+
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             
-            //string numero = NOrden.Text;
+            
+            //string numero = @"Regulador De Presión De Aire Digital";
+            //string sdsd = numero.Replace(@"\", "");
             //RCPorte(numero);
             GetToken();
+            //string legs = "1341804";
+            //valida(legs);
             
+            //arrap();
+
+        }
+        public void barrap()
+        {
+            int totalm = 51342454;
+            TotalMerca.Value = totalm.ToString();
+            //Contador.Value = "234";
+           
+
+
+
+
+
         }
         public void GetToken()
         {
@@ -110,85 +135,93 @@ namespace CARGAR_EXCEL
             string segmento = Segmento.Text;
             string routeid = RouteID.Text;
             string facility = FacilityID.Text;
-            string moreurl1 = "/middle-mile/facilities/";
-            string moreurl2 = "/details";
-            string urls1 = "https://api.mercadolibre.com/shipping/fiscal/MLM/routes/" + routeid + moreurl1 + facility + moreurl2;
-            string uwe = "KGM";
-            var client = new RestClient(urls1);
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("authorization", "Bearer " + token);
-            request.AddHeader("cache-control", "no-cache");
-            RestResponse response = (RestResponse)client.Execute(request);
-            var data = Newtonsoft.Json.JsonConvert.DeserializeObject<MLMCartaPorte>(response.Content);
-            string id = data.id;
-            string cost = data.cost;
-            string fullname = data.recipient.full_name;
-            string rfc = data.recipient.rfc;
 
-            string fiscal_fullname = data.origin.fiscal_information.full_name;
-            string fiscal_rfc = data.origin.fiscal_information.rfc;
-            string fiscal_residences = data.origin.fiscal_information.fiscal_residence;
-
-            string addressline = data.origin.address.address_line;
-            string street_name = data.origin.address.street_name;
-            string street_number = data.origin.address.street_number;
-            string intersection = data.origin.address.intersection;
-            string zip_code = data.origin.address.zip_code;
-            string city_id = data.origin.address.city.id;
-            string city_name = data.origin.address.city.name;
-            string state_id = data.origin.address.state.id;
-            string state_name = data.origin.address.state.name;
-            string country_id = data.origin.address.country.id;
-            string country_name = data.origin.address.country.name;
-            string neig_id = data.origin.address.neighborhood.id;
-            string neig_name = data.origin.address.neighborhood.name;
-            string muni_id = data.origin.address.municipality.id;
-            string muni_name = data.origin.address.municipality.name;
-
-            //DESTINATION
-            string dfiscal_fullname = data.destination.fiscal_information.full_name;
-            string dfiscal_rfc = data.destination.fiscal_information.rfc;
-            string dfiscal_residences = data.destination.fiscal_information.fiscal_residence;
-            string daddressline = data.destination.address.address_line;
-            string dstreet_name = data.destination.address.street_name;
-            string dstreet_number = data.destination.address.street_number;
-            string dintersection = data.destination.address.intersection;
-            string dzip_code = data.destination.address.zip_code;
-            string dcity_id = data.destination.address.city.id;
-            string dcity_name = data.destination.address.city.name;
-            string dstate_id = data.destination.address.state.id;
-            string dstate_name = data.destination.address.state.name;
-            string dcountry_id = data.destination.address.country.id;
-            string dcountry_name = data.destination.address.country.name;
-            string dneig_id = data.destination.address.neighborhood.id;
-            string dneig_name = data.destination.address.neighborhood.name;
-            string dmuni_id = data.destination.address.municipality.id;
-            string dmuni_name = data.destination.address.municipality.name;
-            //END DESTINATION
-
-
-            //SHIPMENTS
-            dynamic info = data.shipments;
-            foreach (var item in info)
+            DataTable otds = facLabControler.ExisteSegmentos(segmento);
+            if (otds.Rows.Count > 0)
             {
+                string moreurl1 = "/middle-mile/facilities/";
+                string moreurl2 = "/details";
+                string urls1 = "https://api.mercadolibre.com/shipping/fiscal/MLM/routes/" + routeid + moreurl1 + facility + moreurl2;
+                string uwe = "KGM";
+                var client = new RestClient(urls1);
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("authorization", "Bearer " + token);
+                request.AddHeader("cache-control", "no-cache");
+                RestResponse response = (RestResponse)client.Execute(request);
+                var data = Newtonsoft.Json.JsonConvert.DeserializeObject<MLMCartaPorte>(response.Content);
+                string id = data.id;
+                string cost = data.cost;
+                string fullname = data.recipient.full_name;
+                string rfc = data.recipient.rfc;
 
-                string ship_id = item.id;
-                string ship_url = item.url;
-                string moreurl = "/items/details";
-                string urls = "https://api.mercadolibre.com/shipping/fiscal/MLM/shipments/" + ship_id + moreurl;
-                var client2 = new RestClient(urls);
+                string fiscal_fullname = data.origin.fiscal_information.full_name;
+                string fiscal_rfc = data.origin.fiscal_information.rfc;
+                string fiscal_residences = data.origin.fiscal_information.fiscal_residence;
 
-                var request2 = new RestRequest(Method.GET);
-                request2.AddHeader("authorization", "Bearer " + token);
-                request2.AddHeader("cache-control", "no-cache");
-                RestResponse response2 = (RestResponse)client2.Execute(request2);
-                string respuesta = response2.Content;
-                var dataz = Newtonsoft.Json.JsonConvert.DeserializeObject<MLMCartaPorte>(respuesta);
-                if (dataz.status == 0)
+                string addressline = data.origin.address.address_line;
+                string street_name = data.origin.address.street_name;
+                string street_number = data.origin.address.street_number;
+                string intersection = data.origin.address.intersection;
+                string zip_code = data.origin.address.zip_code;
+                string city_id = data.origin.address.city.id;
+                string city_name = data.origin.address.city.name;
+                string state_id = data.origin.address.state.id;
+                string state_name = data.origin.address.state.name;
+                string country_id = data.origin.address.country.id;
+                string country_name = data.origin.address.country.name;
+                string neig_id = data.origin.address.neighborhood.id;
+                string neig_name = data.origin.address.neighborhood.name;
+                string muni_id = data.origin.address.municipality.id;
+                string muni_name = data.origin.address.municipality.name;
+
+                //DESTINATION
+                string dfiscal_fullname = data.destination.fiscal_information.full_name;
+                string dfiscal_rfc = data.destination.fiscal_information.rfc;
+                string dfiscal_residences = data.destination.fiscal_information.fiscal_residence;
+                string daddressline = data.destination.address.address_line;
+                string dstreet_name = data.destination.address.street_name;
+                string dstreet_number = data.destination.address.street_number;
+                string dintersection = data.destination.address.intersection;
+                string dzip_code = data.destination.address.zip_code;
+                string dcity_id = data.destination.address.city.id;
+                string dcity_name = data.destination.address.city.name;
+                string dstate_id = data.destination.address.state.id;
+                string dstate_name = data.destination.address.state.name;
+                string dcountry_id = data.destination.address.country.id;
+                string dcountry_name = data.destination.address.country.name;
+                string dneig_id = data.destination.address.neighborhood.id;
+                string dneig_name = data.destination.address.neighborhood.name;
+                string dmuni_id = data.destination.address.municipality.id;
+                string dmuni_name = data.destination.address.municipality.name;
+                //END DESTINATION
+
+
+                //SHIPMENTS
+
+                dynamic info = data.shipments;
+                //int totalm = info.Count;
+                //TotalMerca.Value = totalm.ToString();
+                //int csv = 1;
+                foreach (var item in info)
                 {
-                    DataTable otds = facLabControler.ExisteSegmentos(segmento);
-                    if (otds.Rows.Count > 0)
+                    //Contador.Value = csv.ToString();
+                    //barrap();
+                    string ship_id = item.id;
+                    string ship_url = item.url;
+                    string moreurl = "/items/details";
+                    string urls = "https://api.mercadolibre.com/shipping/fiscal/MLM/shipments/" + ship_id + moreurl;
+                    var client2 = new RestClient(urls);
+
+                    var request2 = new RestRequest(Method.GET);
+                    request2.AddHeader("authorization", "Bearer " + token);
+                    request2.AddHeader("cache-control", "no-cache");
+                    RestResponse response2 = (RestResponse)client2.Execute(request2);
+                    string respuesta = response2.Content;
+                    var dataz = Newtonsoft.Json.JsonConvert.DeserializeObject<MLMCartaPorte>(respuesta);
+                    if (dataz.status == 0)
                     {
+
+
                         foreach (DataRow isegm in otds.Rows)
                         {
                             dynamic elementos = dataz.package.items;
@@ -199,7 +232,10 @@ namespace CARGAR_EXCEL
                                 {
                                     cate = "01010101";
                                 }
-                                string descript = ccitem.description;
+                                string descp = ccitem.description;
+                                string asas = descp.Replace(@"\", "");
+                                string descript = asas;
+                                
                                 string unitcode = ccitem.unit_code;
                                 string quanti = ccitem.quantity;
                                 int heig = ccitem.dimensions.height;
@@ -212,161 +248,98 @@ namespace CARGAR_EXCEL
                                 InsertMerc(Ai_orden, id, cate, descript, weight, uwe, quanti, unitcode);
                                 facLabControler.GetMerca(Ai_orden, segmento, cate, descript, weig, uwe, quanti, unitcode);
                             }
-                            int segm = Int32.Parse(segmento);
-                            var request28196 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + segm);
-                            var response28196 = (HttpWebResponse)request28196.GetResponse();
-                            var responseString28196 = new StreamReader(response28196.GetResponseStream()).ReadToEnd();
 
-                            List<ModelFact> separados819 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString28196);
-                            //PASO 2 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
-                            if (separados819 != null)
+                        }
+                       
+                        int total_items = dataz.package.total_items;
+                    }
+                    else
+                    {
+                        InsertMercErrores(ship_id);
+                    }
+
+
+                }
+                facLabControler.DeleteMerca(segmento);
+                ValidaTralix(segmento);
+
+                //END SHIPMENTS
+                //string msg = "Mercancias cargadas";
+                //ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Exitoso ', 'success');setTimeout(function(){window.location.href ='WebForm1.aspx'}, 10000)", true);
+            }
+            else
+            {
+                string titulo = "Error en el segmento: ";
+                string mensaje = "Revisa tu correo";
+                facLabControler.enviarNotificacion(segmento, titulo, mensaje);
+                string msg = "Error en el segmento:";
+                ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Error ', 'error');setTimeout(function(){window.location.href ='WebForm1.aspx'}, 10000)", true);
+
+            }
+
+
+
+        }
+        public void ValidaTralix(string segmento)
+        {
+            
+            int segm = Int32.Parse(segmento);
+            var request28196 = (HttpWebRequest)WebRequest.Create("https://canal1.xsa.com.mx:9050/bf2e1036-ba47-49a0-8cd9-e04b36d5afd4/cfdis?folioEspecifico=" + segm);
+            var response28196 = (HttpWebResponse)request28196.GetResponse();
+            var responseString28196 = new StreamReader(response28196.GetResponseStream()).ReadToEnd();
+
+            List<ModelFact> separados819 = JsonConvert.DeserializeObject<List<ModelFact>>(responseString28196);
+            //PASO 2 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
+            if (separados819 != null)
+            {
+                foreach (var rlist in separados819)
+                {
+                    string serie = rlist.serie;
+                    if (serie == "TDRXP")
+                    {
+                        string tipomensaje = "9";
+                        DataTable updateLegs = facLabControler.UpdateLeg(segmento, tipomensaje);
+                        string titulo = "Error en el segmento: ";
+                        string mensaje = "Error la carta porte  ya fue timbrada";
+                        facLabControler.enviarNotificacion(segmento, titulo, mensaje);
+
+                    }
+                    else
+                    {
+                        DataTable res = facLabControler.GetSegmentoRepetido(segmento);
+                        //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
+                        if (res.Rows.Count > 0)
+                        {
+                            //string foliorepetido = item2["segmento"].ToString();
+                            //Console.WriteLine("El Folio ya esta timbrado" + foliorepetido);
+                            foreach (DataRow gsegt in res.Rows)
                             {
-                                foreach (var rlist in separados819)
+                                string resst = gsegt["Serie"].ToString();
+                                if (resst == "TDRXP")
                                 {
-                                    string serie = rlist.serie;
-                                    if (serie == "TDRXP")
+                                    DataTable vstatus = facLabControler.ExisteStatus(segmento);
+                                    foreach (DataRow lstu in vstatus.Rows)
                                     {
-                                        string tipomensaje = "9";
-                                        DataTable updateLegs = facLabControler.UpdateLeg(segmento, tipomensaje);
-                                        string titulo = "Error en el segmento: ";
-                                        string mensaje = "Error la carta porte  ya fue timbrada";
-                                        facLabControler.enviarNotificacion(segmento, titulo, mensaje);
+                                        string estatus = lstu["estatus"].ToString();
+                                        int vsegm = Int32.Parse(estatus);
 
-                                    }
-                                    else
-                                    {
-                                        DataTable res = facLabControler.GetSegmentoRepetido(segmento);
-                                        //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
-                                        if (res.Rows.Count > 0)
+                                        if (vsegm != 2)
                                         {
-                                            //string foliorepetido = item2["segmento"].ToString();
-                                            //Console.WriteLine("El Folio ya esta timbrado" + foliorepetido);
-                                            foreach (DataRow gsegt in res.Rows)
-                                            {
-                                                string resst = gsegt["Serie"].ToString();
-                                                if (resst == "TDRXP")
-                                                {
-                                                    DataTable vstatus = facLabControler.ExisteStatus(segmento);
-                                                    foreach (DataRow lstu in vstatus.Rows)
-                                                    {
-                                                        string estatus = lstu["estatus"].ToString();
-                                                        int vsegm = Int32.Parse(estatus);
-
-                                                        if (vsegm != 2)
-                                                        {
-                                                            string tipomensaje = "9";
-                                                            DataTable updateLegs = facLabControler.UpdateLeg(segmento, tipomensaje);
-                                                            string titulo = "Error en el segmento: ";
-                                                            string mensaje = "Error la carta porte ya fue timbrada.";
-                                                            facLabControler.enviarNotificacion(segmento, titulo, mensaje);
-                                                        }
-                                                        else
-                                                        {
-                                                            string titulo = "Error en el segmento: ";
-                                                            string mensaje = "Error la carta porte ya fue timbrada.";
-                                                            facLabControler.enviarNotificacion(segmento, titulo, mensaje);
-                                                        }
-                                                    }
-                                                }
-                                                else
-                                                {
-                                                    DataTable results = facLabControler.TieneMercancias(segmento);
-                                                    //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
-                                                    foreach (DataRow resl in results.Rows)
-                                                    {
-                                                        string totald = resl["total"].ToString();
-                                                        int num_var = Int32.Parse(totald);
-                                                        if (num_var > 0)
-                                                        {
-
-                                                            valida(segmento);
-
-                                                        }
-                                                    }
-                                                }
-                                            }
-
-
-                                        }
-                                        else  // PASO 5 - SI NO EXISTE CONTINUA CON EL PROCESO DE TIMBRADO
-                                        {
-                                            DataTable results = facLabControler.TieneMercancias(segmento);
-                                            //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
-                                            foreach (DataRow resl in results.Rows)
-                                            {
-                                                string totald = resl["total"].ToString();
-                                                int num_var = Int32.Parse(totald);
-                                                if (num_var > 0)
-                                                {
-
-
-                                                    valida(segmento);
-
-                                                }
-                                            }
-                                        }
-
-                                    }
-                                }
-
-                            }
-                            else
-                            {
-                                //PASO 3 - VALIDA QUE NO ESTE REGISTRADO EN LA VISTA_CARTA_PORTE
-                                DataTable res = facLabControler.GetSegmentoRepetido(segmento);
-                                //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
-                                if (res.Rows.Count > 0)
-                                {
-                                    //string foliorepetido = item2["segmento"].ToString();
-                                    //Console.WriteLine("El Folio ya esta timbrado" + esegmento);
-                                    foreach (DataRow gsegt in res.Rows)
-                                    {
-                                        string resst = gsegt["Serie"].ToString();
-                                        if (resst == "TDRXP")
-                                        {
-                                            DataTable vstatus = facLabControler.ExisteStatus(segmento);
-                                            foreach (DataRow lstu in vstatus.Rows)
-                                            {
-                                                string estatus = lstu["estatus"].ToString();
-                                                int vsegm = Int32.Parse(estatus);
-
-                                                if (vsegm != 2)
-                                                {
-                                                    string tipomensaje = "9";
-                                                    DataTable updateLegs = facLabControler.UpdateLeg(segmento, tipomensaje);
-                                                    string titulo = "Error en el segmento: ";
-                                                    string mensaje = "Error la carta porte ya fue timbrada.";
-                                                    facLabControler.enviarNotificacion(segmento, titulo, mensaje);
-                                                }
-                                                else
-                                                {
-                                                    string titulo = "Error en el segmento: ";
-                                                    string mensaje = "Error la carta porte ya fue timbrada.";
-                                                    facLabControler.enviarNotificacion(segmento, titulo, mensaje);
-                                                }
-                                            }
+                                            string tipomensaje = "9";
+                                            DataTable updateLegs = facLabControler.UpdateLeg(segmento, tipomensaje);
+                                            string titulo = "Error en el segmento: ";
+                                            string mensaje = "Error la carta porte ya fue timbrada.";
+                                            facLabControler.enviarNotificacion(segmento, titulo, mensaje);
                                         }
                                         else
                                         {
-                                            DataTable results = facLabControler.TieneMercancias(segmento);
-                                            //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
-                                            foreach (DataRow resl in results.Rows)
-                                            {
-                                                string totald = resl["total"].ToString();
-                                                int num_var = Int32.Parse(totald);
-                                                if (num_var > 0)
-                                                {
-
-                                                    valida(segmento);
-
-                                                }
-                                            }
+                                            string titulo = "Error en el segmento: ";
+                                            string mensaje = "Error la carta porte ya fue timbrada.";
+                                            facLabControler.enviarNotificacion(segmento, titulo, mensaje);
                                         }
                                     }
-
-
                                 }
-                                else  // PASO 5 - SI NO EXISTE CONTINUA CON EL PROCESO DE TIMBRADO
+                                else
                                 {
                                     DataTable results = facLabControler.TieneMercancias(segmento);
                                     //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
@@ -382,24 +355,108 @@ namespace CARGAR_EXCEL
                                         }
                                     }
                                 }
+                            }
 
+
+                        }
+                        else  // PASO 5 - SI NO EXISTE CONTINUA CON EL PROCESO DE TIMBRADO
+                        {
+                            DataTable results = facLabControler.TieneMercancias(segmento);
+                            //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
+                            foreach (DataRow resl in results.Rows)
+                            {
+                                string totald = resl["total"].ToString();
+                                int num_var = Int32.Parse(totald);
+                                if (num_var > 0)
+                                {
+
+
+                                    valida(segmento);
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+            else
+            {
+                //PASO 3 - VALIDA QUE NO ESTE REGISTRADO EN LA VISTA_CARTA_PORTE
+                DataTable res = facLabControler.GetSegmentoRepetido(segmento);
+                //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
+                if (res.Rows.Count > 0)
+                {
+                    //string foliorepetido = item2["segmento"].ToString();
+                    //Console.WriteLine("El Folio ya esta timbrado" + esegmento);
+                    foreach (DataRow gsegt in res.Rows)
+                    {
+                        string resst = gsegt["Serie"].ToString();
+                        if (resst == "TDRXP")
+                        {
+                            DataTable vstatus = facLabControler.ExisteStatus(segmento);
+                            foreach (DataRow lstu in vstatus.Rows)
+                            {
+                                string estatus = lstu["estatus"].ToString();
+                                int vsegm = Int32.Parse(estatus);
+
+                                if (vsegm != 2)
+                                {
+                                    string tipomensaje = "9";
+                                    DataTable updateLegs = facLabControler.UpdateLeg(segmento, tipomensaje);
+                                    string titulo = "Error en el segmento: ";
+                                    string mensaje = "Error la carta porte ya fue timbrada.";
+                                    facLabControler.enviarNotificacion(segmento, titulo, mensaje);
+                                }
+                                else
+                                {
+                                    string titulo = "Error en el segmento: ";
+                                    string mensaje = "Error la carta porte ya fue timbrada.";
+                                    facLabControler.enviarNotificacion(segmento, titulo, mensaje);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            DataTable results = facLabControler.TieneMercancias(segmento);
+                            //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
+                            foreach (DataRow resl in results.Rows)
+                            {
+                                string totald = resl["total"].ToString();
+                                int num_var = Int32.Parse(totald);
+                                if (num_var > 0)
+                                {
+
+                                    valida(segmento);
+
+                                }
                             }
                         }
                     }
 
-                    
-                    
-                        int total_items = dataz.package.total_items;
-                }
-                else
-                {
-                    InsertMercErrores(ship_id);
-                }
 
+                }
+                else  // PASO 5 - SI NO EXISTE CONTINUA CON EL PROCESO DE TIMBRADO
+                {
+                    DataTable results = facLabControler.TieneMercancias(segmento);
+                    //PASO 4 - SI EXISTE LE ACTUALIZA EL ESTATUS A 9
+                    foreach (DataRow resl in results.Rows)
+                    {
+                        string totald = resl["total"].ToString();
+                        int num_var = Int32.Parse(totald);
+                        if (num_var > 0)
+                        {
+
+                            valida(segmento);
+
+                        }
+                    }
+                }
 
             }
-            //END SHIPMENTS
         }
+
         public  List<string> valida(string leg)
         {
             string compCarta = "";
@@ -467,6 +524,7 @@ namespace CARGAR_EXCEL
                                     }
                                     
                                     facLabControler.enviarNotificacion(leg,titulo, mensaje);
+                                    
                                     //string msg = "Existoso: Se timbro correctamente la Carta porte:" + leg;
                                     //ScriptManager.RegisterStartupScript(this, GetType(), "swal", "swal('" + msg + "', 'Carta porte timbrada ', 'success');setTimeout(function(){window.location.href ='WebForm1.aspx'}, 10000)", true);
                                     //Aqui actualizamos en estatus 

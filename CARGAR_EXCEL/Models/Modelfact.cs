@@ -645,7 +645,7 @@ namespace CARGAR_EXCEL.Models
             using (SqlConnection connection = new SqlConnection(cadena2))
             {
 
-                using (SqlCommand selectCommand = new SqlCommand("sp_InsertOrderReport", connection))
+                using (SqlCommand selectCommand = new SqlCommand("sp_InsertOrderReportMercadoLibre", connection))
                 {
 
                     selectCommand.CommandType = CommandType.StoredProcedure;
