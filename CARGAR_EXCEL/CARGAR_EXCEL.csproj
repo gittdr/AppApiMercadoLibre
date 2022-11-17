@@ -99,15 +99,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Default.aspx" />
     <Content Include="Models\icon.png" />
     <Content Include="Models\indicator.gif" />
+    <Content Include="Models\load-37_256.gif" />
+    <Content Include="Models\loading.gif" />
     <Content Include="Models\logo.png" />
+    <Content Include="Models\procesando.gif" />
     <Content Include="Web.config" />
+    <Content Include="Inicio.aspx" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\City.cs" />
@@ -135,6 +147,13 @@
     <Compile Include="Models\storeProcedure.cs" />
     <Compile Include="Models\UploadFiles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

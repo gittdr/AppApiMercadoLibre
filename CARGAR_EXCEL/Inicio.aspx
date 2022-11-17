@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="CARGAR_EXCEL.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="CARGAR_EXCEL.Inicio" %>
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 
@@ -231,32 +231,6 @@
   height: 30px;
   background-color: #f7be31;
 }
-#divLoading {
-    -moz-animation: cssAnimation 0s ease-in 3s forwards;
-    /* Firefox */
-    -webkit-animation: cssAnimation 0s ease-in 3s forwards;
-    /* Safari and Chrome */
-    -o-animation: cssAnimation 0s ease-in 3s forwards;
-    /* Opera */
-    animation: cssAnimation 0s ease-in 3s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-}
-@keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
-}
-@-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
-}
-#<%=UpdatePanel1.ClientID %> {width:100%;}
             
     </style>
     <script>
@@ -291,21 +265,7 @@
     </script>
     <script type="text/javascript">
 
-        function Showalert() {
-
-            var divv = document.getElementById('<%=Rcartaporte.ClientID%>').value;
-            
-            
-            swal({
-                title: '<h1><i style="color:#f27474;font-size:80px;" class="fa fa-times-circle-o" aria-hidden="true"></i></h1>',
-                icon: 'success',
-                html: '<div class="alert alert-danger" role="alert">' + divv+'</div>',
-                showCloseButton: false,
-                showCancelButton: false,
-                focusConfirm: false
-            });
-            return true;
-        }
+        
         function Showalert2() {
             var divv = document.getElementById('<%=HiddenField1.ClientID%>').value;
             swal({
@@ -361,12 +321,9 @@
 
     </nav>
     <div class="content-wrapper" style="overflow:scroll">
-       
         <div class="content shadow-lg">
               <form id="form1" runat="server">
-                   <asp:ScriptManager ID="ScriptManager1" runat="server" AsyncPostBackTimeout="1919919289">
-        </asp:ScriptManager>
-                  
+
          <div class="container-fluid mt-4">
                  <div class="card" runat="server" id="card1">
                   <div class="card-header">
@@ -397,38 +354,15 @@
                                     <asp:TextBox ID="FacilityID" CssClass="form-control" runat="server" required="true"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="RequiredFielValidator" ControlToValidate="FacilityID" Display="Dynamic" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
                         </div>
-                       
                         <div class="col-sm-12">
                             <div class="form-row">
-                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                                <div style="width: 100%;">
+                                
                                 
                                 <div class="form-group col-sm-12">
                                   <asp:Button ID="Button1" runat="server" Text="Procesar" CssClass="btn btn-block btn-success mt-4" OnClick="Button1_Click" />
                                 </div>
-                                    </div>
                             </div>
                         </div>
-                            <div class="col-sm-12">
-                                <div class="form-row">
-                                     <div class="form-group col-sm-12" style="text-align:center">
-                                          
-                                         <asp:UpdateProgress ID="UpdWaitImage" runat="server"  DynamicLayout="true" AssociatedUpdatePanelID="UpdatePanel1">
-                                         <ProgressTemplate>
-                                            <asp:Image ID="imgProgress" ImageUrl="Models/load-37_256.gif" runat="server" />
-                                                <br />
-                                             <br />
-                                             <h1>Procesando ...</h1>
-                                             <h3>¡Este proceso puede tardar hasta más de 1 hora!</h3>
-                                        </ProgressTemplate>
-                                        </asp:UpdateProgress>     
-                                     </div>
-                                </div>
-                            </div>
-                              </ContentTemplate>
-                           </asp:UpdatePanel>
-
                         
                         
                                
@@ -436,7 +370,7 @@
                         <hr />
                         
                                 
-                                <asp:HiddenField ID="Rcartaporte"  runat="server"></asp:HiddenField>
+                                
                         <asp:HiddenField ID="HiddenField1"  runat="server"></asp:HiddenField>   
                          <asp:HiddenField ID="TotalMerca"  runat="server"></asp:HiddenField>
                         <asp:HiddenField ID="Contador"  runat="server"></asp:HiddenField>
@@ -453,27 +387,9 @@
                 </div>
              <br />
              <br />
-             <div class="card" runat="server" id="card3">
-                 <div class="card-header bg-success" style="color:white">
-                    <b>Procesando la información...</b>
-                  </div>
-                 <div class="card-body">
-                     <div class="row">
-                         <div class="col-sm-12" style="height:40vh">
-                             
-                                 <div runat="server" id="spinners" style="background-image:url(Models/loading.gif);position:absolute;top:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-position:center;z-index:2000"></div>
-                              
-                         </div>
-                     </div>
-                 </div>
-                 
-             </div>
-              <br />
-             <br />
-                      
-             <div class="card" runat="server" id="card2">
+             <%--<div class="card" runat="server" id="card2">
                   <div class="card-header">
-                    <b>Carta Porte Timbrada</b>
+                    Carta Porte Registrada
                   </div>
                   <div class="card-body">
                     <div class="row">
@@ -524,12 +440,10 @@
                    
                   </div>
 
-                </div>
-                            
+                </div>--%>
         </div>
-                     </div>
 
-     </div>
+        </div>
         <%--<div>
             
             <br />
